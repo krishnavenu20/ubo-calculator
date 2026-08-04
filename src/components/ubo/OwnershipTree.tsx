@@ -23,37 +23,41 @@ function NodeBox({ node, onSelect }: { node: TreeNode; onSelect?: ((id: string) 
 
 function Branch({ node, onSelect }: { node: TreeNode; onSelect?: ((id: string) => void) | undefined }) {
   return (
-    <li className="relative flex flex-col items-center px-3">
-      <div className="relative">
-        <NodeBox node={node} onSelect={onSelect} />
-      </div>
+    <div className="flex flex-col items-center px-3">
+      <NodeBox node={node} onSelect={onSelect} />
       {node.children.length > 0 && (
         <>
           <span className="h-6 w-px bg-border" />
-          <ul className="relative flex justify-center">
+          <div className="flex justify-center">
             {node.children.map((child, i) => (
-              <li key={child.key} className="relative flex flex-col items-center px-3 pt-6">
+              <div key={child.key} className="relative flex flex-col items-center px-3 pt-6">
                 <span className="absolute left-0 right-0 top-0 h-px bg-border" />
-                {i === 0 && <span className="absolute left-0 top-0 h-px w-1/2 bg-background" />}
-                {i === node.children.length - 1 && <span className="absolute right-0 top-0 h-px w-1/2 bg-background" />}
+                {i === 0 && <span className="absolute left-0 top-0 h-px w-1/2 bg-card" />}
+                {i === node.children.length - 1 && <span className="absolute right-0 top-0 h-px w-1/2 bg-card" />}
                 <span className="absolute top-0 h-6 w-px bg-border" />
                 <Branch node={child} onSelect={onSelect} />
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         </>
       )}
-    </li>
+    </div>
   );
 }
 
-export function OwnershipTree({ root, onSelect }: { root: TreeNode | null; onSelect?: ((id: string) => void) | undefined }) {
+export function OwnershipTree({
+  root,
+  onSelect,
+}: {
+  root: TreeNode | null;
+  onSelect?: ((id: string) => void) | undefined;
+}) {
   if (!root) return <p className="text-sm text-muted-foreground">Create a company to see the ownership tree.</p>;
   return (
     <div className="overflow-x-auto pb-4">
-      <ul className="flex min-w-max justify-center">
-        <Branch node={root} onSelect={onSelect} />
-      </ul>
+      <div className="flex min-w-max justify-center">
+        <Branch root-data-key={root.key} node={root} onSelect={onSelect} />
+      </div>
     </div>
   );
 }
