@@ -39,7 +39,7 @@ function CalculatorPage() {
               {invalid.length} company/companies do not total 100%: {invalid.map((c) => c.name).join(", ")}
             </p>
           )}
-          <div className="grid gap-5 xl:grid-cols-2">
+          <div className="grid gap-5 2xl:grid-cols-2">
             {state.companies.map((c) => (
               <OwnershipTable key={c.id} companyId={c.id} />
             ))}
