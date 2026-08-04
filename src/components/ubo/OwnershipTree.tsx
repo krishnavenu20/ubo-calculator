@@ -56,7 +56,7 @@ export function OwnershipTree({
   return (
     <div className="overflow-x-auto pb-4">
       <div className="flex min-w-max justify-center">
-        <Branch root-data-key={root.key} node={root} onSelect={onSelect} />
+        <Branch node={root} onSelect={onSelect} />
       </div>
     </div>
   );
