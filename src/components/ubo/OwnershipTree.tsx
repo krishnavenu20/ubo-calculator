@@ -1,6 +1,6 @@
 import type { TreeNode } from "@/lib/ubo-engine";
 
-function NodeBox({ node, onSelect }: { node: TreeNode; onSelect?: (id: string) => void }) {
+function NodeBox({ node, onSelect }: { node: TreeNode; onSelect?: ((id: string) => void) | undefined }) {
   const isCompany = node.type === "company";
   const clickable = isCompany && !!onSelect;
   return (
@@ -21,7 +21,7 @@ function NodeBox({ node, onSelect }: { node: TreeNode; onSelect?: (id: string) =
   );
 }
 
-function Branch({ node, onSelect }: { node: TreeNode; onSelect?: (id: string) => void }) {
+function Branch({ node, onSelect }: { node: TreeNode; onSelect?: ((id: string) => void) | undefined }) {
   return (
     <li className="relative flex flex-col items-center px-3">
       <div className="relative">
@@ -47,7 +47,7 @@ function Branch({ node, onSelect }: { node: TreeNode; onSelect?: (id: string) =>
   );
 }
 
-export function OwnershipTree({ root, onSelect }: { root: TreeNode | null; onSelect?: (id: string) => void }) {
+export function OwnershipTree({ root, onSelect }: { root: TreeNode | null; onSelect?: ((id: string) => void) | undefined }) {
   if (!root) return <p className="text-sm text-muted-foreground">Create a company to see the ownership tree.</p>;
   return (
     <div className="overflow-x-auto pb-4">

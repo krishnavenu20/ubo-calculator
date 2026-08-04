@@ -12,7 +12,7 @@ import {
 import { useUbo } from "@/lib/ubo-store";
 import { entityName, ownershipTotal, round2, shareholdersOf } from "@/lib/ubo-engine";
 
-export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string; onOpenCompany?: (id: string) => void }) {
+export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string; onOpenCompany?: ((id: string) => void) | undefined }) {
   const { state, addShareholding, updateShareholding, removeShareholding } = useUbo();
   const [holder, setHolder] = useState<string>("");
 
