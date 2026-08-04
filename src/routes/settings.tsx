@@ -24,7 +24,7 @@ function SettingsPage() {
   return (
     <AppLayout title="Settings">
       <div className="grid max-w-3xl gap-6">
-        <div className="space-y-3 rounded-xl border border-border bg-card p-5">
+        <div className="space-y-3 glass rounded-3xl p-5">
           <h2 className="text-base font-semibold text-foreground">UBO threshold</h2>
           <p className="text-sm text-muted-foreground">
             A person is flagged as a UBO when their total effective ownership is greater than or equal to this value.
@@ -45,7 +45,7 @@ function SettingsPage() {
           </div>
         </div>
 
-        <div className="space-y-3 rounded-xl border border-border bg-card p-5">
+        <div className="space-y-3 glass rounded-3xl p-5">
           <h2 className="text-base font-semibold text-foreground">Data</h2>
           <p className="text-sm text-muted-foreground">Your structure is saved locally in this browser.</p>
           <div className="flex flex-wrap gap-2">

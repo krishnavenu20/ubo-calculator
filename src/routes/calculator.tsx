@@ -49,7 +49,7 @@ function CalculatorPage() {
         <section className="grid gap-6">
           <div className="space-y-3">
             <h2 className="text-lg font-semibold text-foreground">2. Ownership Tree</h2>
-            <div className="rounded-xl border border-border bg-card p-5">
+            <div className="glass rounded-3xl p-5">
               <OwnershipTree root={tree} />
             </div>
           </div>
@@ -59,7 +59,7 @@ function CalculatorPage() {
           </div>
         </section>
 
-        <section className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-border bg-card p-5">
+        <section className="flex flex-wrap items-center justify-between gap-4 glass rounded-3xl p-5">
           <p className="flex items-center gap-3 text-sm text-muted-foreground">
             <Info className="size-5 text-primary" />
             A person is considered a UBO if their Effective Ownership is{" "}

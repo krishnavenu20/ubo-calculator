@@ -43,7 +43,7 @@ function TreePage() {
           <span className="text-xs text-muted-foreground">Click any company node to edit its ownership.</span>
         </div>
 
-        <div className="rounded-xl border border-border bg-card p-6">
+        <div className="glass rounded-3xl p-6">
           <OwnershipTree root={tree} onSelect={() => navigate({ to: "/ownership" })} />
         </div>
       </div>

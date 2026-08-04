@@ -28,7 +28,7 @@ function ReportsPage() {
   return (
     <AppLayout title="Reports">
       <div className="space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-card p-5">
+        <div className="flex flex-wrap items-center justify-between gap-3 glass rounded-3xl p-5">
           <div>
             <h2 className="text-base font-semibold text-foreground">UBO report — {rootName}</h2>
             <p className="text-sm text-muted-foreground">

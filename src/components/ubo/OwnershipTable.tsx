@@ -39,8 +39,8 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
   };
 
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-card">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-accent/40 px-5 py-4">
+    <div className="glass liquid-sheen overflow-hidden rounded-3xl">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-glass-border bg-glass-strong/40 px-5 py-4">
         <h3 className="text-base font-semibold text-foreground">{entityName(state, companyId)} — Ownership</h3>
         <div className="flex items-center gap-2">
           <Select value={holder} onValueChange={setHolder}>
