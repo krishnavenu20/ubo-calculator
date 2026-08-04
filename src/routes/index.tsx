@@ -1,24 +1,88 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useMemo } from "react";
+import { AppLayout } from "@/components/AppLayout";
+import { useUbo } from "@/lib/ubo-store";
+import { calculateUbos, ownershipTotal } from "@/lib/ubo-engine";
+import { Building2, Users, Target, AlertTriangle, ArrowRight } from "lucide-react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Dashboard — UBO Calculator" },
+      { name: "description", content: "Overview of companies, individuals and identified Ultimate Beneficial Owners." },
+      { property: "og:title", content: "Dashboard — UBO Calculator" },
+      { property: "og:description", content: "Overview of companies, individuals and identified UBOs." },
+    ],
+  }),
+  component: Dashboard,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Dashboard() {
+  const { state } = useUbo();
+  const output = useMemo(() => calculateUbos(state, state.rootCompanyId), [state]);
+  const invalid = state.companies.filter((c) => ownershipTotal(state, c.id) !== 100);
+
+  const stats = [
+    { label: "Companies", value: state.companies.length, icon: Building2 },
+    { label: "Individuals", value: state.individuals.length, icon: Users },
+    { label: "UBOs Identified", value: output.totalUbos, icon: Target },
+    { label: "Companies ≠ 100%", value: invalid.length, icon: AlertTriangle },
+  ];
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <AppLayout title="Dashboard">
+      <div className="space-y-6">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="rounded-xl border border-border bg-card p-5">
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-muted-foreground">{s.label}</p>
+                <s.icon className="size-5 text-primary" />
+              </div>
+              <p className="mt-3 text-3xl font-bold text-foreground">{s.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-2">
+          <div className="rounded-xl border border-border bg-card p-5">
+            <h2 className="text-base font-semibold text-foreground">How it works</h2>
+            <ol className="mt-3 space-y-2 text-sm text-muted-foreground">
+              <li>1. Create companies and individuals.</li>
+              <li>2. Add shareholders per company until ownership totals exactly 100%.</li>
+              <li>3. Open nested companies and repeat for every level.</li>
+              <li>4. Run the UBO calculator — all direct and indirect ownership is computed automatically.</li>
+            </ol>
+            <Link
+              to="/ownership"
+              className="mt-4 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+            >
+              Open Ownership Builder <ArrowRight className="size-4" />
+            </Link>
+          </div>
+
+          <div className="rounded-xl border border-border bg-card p-5">
+            <h2 className="text-base font-semibold text-foreground">Validation status</h2>
+            {state.companies.length === 0 ? (
+              <p className="mt-3 text-sm text-muted-foreground">No companies yet.</p>
+            ) : (
+              <ul className="mt-3 space-y-2 text-sm">
+                {state.companies.map((c) => {
+                  const total = ownershipTotal(state, c.id);
+                  return (
+                    <li key={c.id} className="flex items-center justify-between border-b border-border py-2 last:border-0">
+                      <span className="text-foreground">{c.name}</span>
+                      <span className={total === 100 ? "font-medium text-success" : "font-medium text-destructive"}>
+                        {total}%
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+    </AppLayout>
   );
 }
