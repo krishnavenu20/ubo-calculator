@@ -14,6 +14,8 @@ import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as IndividualsRouteImport } from './routes/individuals'
 import { Route as OwnershipRouteImport } from './routes/ownership'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as TreeRouteImport } from './routes/tree'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +43,16 @@ const OwnershipRoute = OwnershipRouteImport.update({
   path: '/ownership',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TreeRoute = TreeRouteImport.update({
   id: '/tree',
   path: '/tree',
@@ -53,6 +65,8 @@ export interface FileRoutesByFullPath {
   '/companies': typeof CompaniesRoute
   '/individuals': typeof IndividualsRoute
   '/ownership': typeof OwnershipRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/tree': typeof TreeRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +75,8 @@ export interface FileRoutesByTo {
   '/companies': typeof CompaniesRoute
   '/individuals': typeof IndividualsRoute
   '/ownership': typeof OwnershipRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/tree': typeof TreeRoute
 }
 export interface FileRoutesById {
@@ -70,15 +86,31 @@ export interface FileRoutesById {
   '/companies': typeof CompaniesRoute
   '/individuals': typeof IndividualsRoute
   '/ownership': typeof OwnershipRoute
+  '/reports': typeof ReportsRoute
+  '/settings': typeof SettingsRoute
   '/tree': typeof TreeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/calculator' | '/companies' | '/individuals' | '/ownership' | '/tree'
+    | '/'
+    | '/calculator'
+    | '/companies'
+    | '/individuals'
+    | '/ownership'
+    | '/reports'
+    | '/settings'
+    | '/tree'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/calculator' | '/companies' | '/individuals' | '/ownership' | '/tree'
+    | '/'
+    | '/calculator'
+    | '/companies'
+    | '/individuals'
+    | '/ownership'
+    | '/reports'
+    | '/settings'
+    | '/tree'
   id:
     | '__root__'
     | '/'
@@ -86,6 +118,8 @@ export interface FileRouteTypes {
     | '/companies'
     | '/individuals'
     | '/ownership'
+    | '/reports'
+    | '/settings'
     | '/tree'
   fileRoutesById: FileRoutesById
 }
@@ -95,6 +129,8 @@ export interface RootRouteChildren {
   CompaniesRoute: typeof CompaniesRoute
   IndividualsRoute: typeof IndividualsRoute
   OwnershipRoute: typeof OwnershipRoute
+  ReportsRoute: typeof ReportsRoute
+  SettingsRoute: typeof SettingsRoute
   TreeRoute: typeof TreeRoute
 }
 
@@ -135,6 +171,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OwnershipRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tree': {
       id: '/tree'
       path: '/tree'
@@ -151,6 +201,8 @@ const rootRouteChildren: RootRouteChildren = {
   CompaniesRoute: CompaniesRoute,
   IndividualsRoute: IndividualsRoute,
   OwnershipRoute: OwnershipRoute,
+  ReportsRoute: ReportsRoute,
+  SettingsRoute: SettingsRoute,
   TreeRoute: TreeRoute,
 }
 export const routeTree = rootRouteImport
