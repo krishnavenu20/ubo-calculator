@@ -37,7 +37,7 @@ function CompaniesPage() {
   return (
     <AppLayout title="Companies">
       <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
-        <form onSubmit={submit} className="space-y-4 rounded-xl border border-border bg-card p-5">
+        <form onSubmit={submit} className="space-y-4 glass rounded-3xl p-5">
           <h2 className="text-base font-semibold text-foreground">New company</h2>
           <div className="space-y-2">
             <Label htmlFor="name">Company name</Label>
@@ -60,7 +60,7 @@ function CompaniesPage() {
           </Button>
         </form>
 
-        <div className="overflow-hidden rounded-xl border border-border bg-card">
+        <div className="glass liquid-sheen overflow-hidden rounded-3xl">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border text-left text-muted-foreground">

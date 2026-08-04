@@ -16,7 +16,7 @@ export function UboResults({ output, threshold }: { output: CalculationOutput; t
   }
 
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-card">
+    <div className="glass liquid-sheen overflow-hidden rounded-3xl">
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
           <thead>

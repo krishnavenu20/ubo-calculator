@@ -34,7 +34,7 @@ function Dashboard() {
       <div className="space-y-6">
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.label} className="rounded-xl border border-border bg-card p-5">
+            <div key={s.label} className="glass rounded-3xl p-5">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-muted-foreground">{s.label}</p>
                 <s.icon className="size-5 text-primary" />
@@ -45,7 +45,7 @@ function Dashboard() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-2">
-          <div className="rounded-xl border border-border bg-card p-5">
+          <div className="glass rounded-3xl p-5">
             <h2 className="text-base font-semibold text-foreground">How it works</h2>
             <ol className="mt-3 space-y-2 text-sm text-muted-foreground">
               <li>1. Create companies and individuals.</li>
@@ -61,7 +61,7 @@ function Dashboard() {
             </Link>
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-5">
+          <div className="glass rounded-3xl p-5">
             <h2 className="text-base font-semibold text-foreground">Validation status</h2>
             {state.companies.length === 0 ? (
               <p className="mt-3 text-sm text-muted-foreground">No companies yet.</p>
