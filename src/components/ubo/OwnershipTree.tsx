@@ -55,7 +55,7 @@ export function OwnershipTree({
   if (!root) return <p className="text-sm text-muted-foreground">Create a company to see the ownership tree.</p>;
   return (
     <div className="overflow-x-auto pb-4">
-      <div className="flex min-w-max justify-center">
+      <div className="flex min-w-max justify-start">
         <Branch node={root} onSelect={onSelect} />
       </div>
     </div>

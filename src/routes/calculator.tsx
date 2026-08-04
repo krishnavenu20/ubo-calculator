@@ -46,7 +46,7 @@ function CalculatorPage() {
           </div>
         </section>
 
-        <section className="grid gap-6 xl:grid-cols-2">
+        <section className="grid gap-6">
           <div className="space-y-3">
             <h2 className="text-lg font-semibold text-foreground">2. Ownership Tree</h2>
             <div className="rounded-xl border border-border bg-card p-5">
