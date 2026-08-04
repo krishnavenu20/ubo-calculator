@@ -30,10 +30,20 @@ function Branch({ node, onSelect }: { node: TreeNode; onSelect?: ((id: string) =
           <div className="flex justify-center">
             {node.children.map((child, i) => (
               <div key={child.key} className="relative flex flex-col items-center px-3 pt-6">
-                <span className="absolute left-0 right-0 top-0 h-px bg-foreground/15" />
-                {i === 0 && <span className="absolute left-0 top-0 h-px w-1/2 bg-transparent backdrop-blur-none" />}
-                {i === node.children.length - 1 && <span className="absolute right-0 top-0 h-px w-1/2 bg-transparent backdrop-blur-none" />}
+                <span
+                  className={
+                    "absolute top-0 h-px bg-foreground/15 " +
+                    (node.children.length === 1
+                      ? "hidden"
+                      : i === 0
+                        ? "left-1/2 right-0"
+                        : i === node.children.length - 1
+                          ? "left-0 right-1/2"
+                          : "left-0 right-0")
+                  }
+                />
                 <span className="absolute top-0 h-6 w-px bg-foreground/15" />
+
                 <Branch node={child} onSelect={onSelect} />
               </div>
             ))}
