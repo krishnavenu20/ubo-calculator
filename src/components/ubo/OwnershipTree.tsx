@@ -8,11 +8,10 @@ function NodeBox({ node, onSelect }: { node: TreeNode; onSelect?: ((id: string) 
       disabled={!clickable}
       onClick={() => clickable && onSelect?.(node.id)}
       className={
-        "min-w-[132px] rounded-lg border px-3 py-2 text-center text-xs font-medium shadow-sm transition-colors " +
-        (isCompany
-          ? "border-primary/40 bg-accent text-accent-foreground hover:bg-accent/70"
-          : "border-success/40 bg-success-soft text-foreground")
+        "glass glass-hover liquid-sheen min-w-[140px] rounded-2xl px-4 py-2.5 text-center text-xs font-medium " +
+        (isCompany ? "text-foreground" : "text-foreground/90")
       }
+
     >
       <span className="block">{node.name}</span>
       {node.percentage !== null && <span className="mt-0.5 block font-semibold">{node.percentage}%</span>}
