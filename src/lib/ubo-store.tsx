@@ -5,7 +5,11 @@ const STORAGE_KEY = "ubo-calculator-state-v1";
 
 const uid = () => Math.random().toString(36).slice(2, 10);
 
+let seedCounter = 0;
+const SEED_ID = () => `seed-${++seedCounter}`;
+
 function seed(): UboState {
+  seedCounter = 0;
   const a = { id: "cmp-a", name: "Company A", country: "United Arab Emirates", registrationNumber: "CN-100201" };
   const d = { id: "cmp-d", name: "Company D", country: "United Arab Emirates", registrationNumber: "CN-100455" };
   const pA = { id: "ind-a", name: "A - Related Person", country: "India" };
@@ -15,12 +19,12 @@ function seed(): UboState {
     companies: [a, d],
     individuals: [pA, pB, pC],
     shareholdings: [
-      { id: uid(), companyId: a.id, holderId: pA.id, holderType: "individual", ownership: 20, voting: 20, control: 20 },
-      { id: uid(), companyId: a.id, holderId: pB.id, holderType: "individual", ownership: 30, voting: 30, control: 30 },
-      { id: uid(), companyId: a.id, holderId: pC.id, holderType: "individual", ownership: 10, voting: 10, control: 10 },
-      { id: uid(), companyId: a.id, holderId: d.id, holderType: "company", ownership: 40, voting: 40, control: 40 },
-      { id: uid(), companyId: d.id, holderId: pA.id, holderType: "individual", ownership: 60, voting: 60, control: 60 },
-      { id: uid(), companyId: d.id, holderId: pB.id, holderType: "individual", ownership: 40, voting: 40, control: 40 },
+      { id: SEED_ID(), companyId: a.id, holderId: pA.id, holderType: "individual", ownership: 20, voting: 20, control: 20 },
+      { id: SEED_ID(), companyId: a.id, holderId: pB.id, holderType: "individual", ownership: 30, voting: 30, control: 30 },
+      { id: SEED_ID(), companyId: a.id, holderId: pC.id, holderType: "individual", ownership: 10, voting: 10, control: 10 },
+      { id: SEED_ID(), companyId: a.id, holderId: d.id, holderType: "company", ownership: 40, voting: 40, control: 40 },
+      { id: SEED_ID(), companyId: d.id, holderId: pA.id, holderType: "individual", ownership: 60, voting: 60, control: 60 },
+      { id: SEED_ID(), companyId: d.id, holderId: pB.id, holderType: "individual", ownership: 40, voting: 40, control: 40 },
     ],
     threshold: 10,
     rootCompanyId: a.id,
