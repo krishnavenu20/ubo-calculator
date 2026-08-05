@@ -105,6 +105,7 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
                       type="number"
                       min={0}
                       max={100}
+                      aria-label={`${field} percentage for ${entityName(state, r.holderId)}`}
                       value={r[field] ?? 0}
                       onChange={(e) => updateShareholding(r.id, { [field]: Number(e.target.value) })}
                       className="h-9 w-24"
