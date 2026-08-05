@@ -69,14 +69,15 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
+          <caption className="sr-only">Shareholders and their ownership, voting and control percentages</caption>
           <thead>
             <tr className="border-b border-border text-left text-muted-foreground">
-              <th className="px-5 py-3 font-medium">Shareholder / Entity</th>
-              <th className="px-3 py-3 font-medium">Type</th>
-              <th className="px-3 py-3 font-medium">Ownership %</th>
-              <th className="px-3 py-3 font-medium">Voting %</th>
-              <th className="px-3 py-3 font-medium">Control %</th>
-              <th className="px-3 py-3 font-medium">Action</th>
+              <th scope="col" className="px-5 py-3 font-medium">Shareholder / Entity</th>
+              <th scope="col" className="px-3 py-3 font-medium">Type</th>
+              <th scope="col" className="px-3 py-3 font-medium">Ownership %</th>
+              <th scope="col" className="px-3 py-3 font-medium">Voting %</th>
+              <th scope="col" className="px-3 py-3 font-medium">Control %</th>
+              <th scope="col" className="px-3 py-3 font-medium">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -91,7 +92,7 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
               <tr key={r.id} className="border-b border-border last:border-0">
                 <td className="px-5 py-3">
                   {r.holderType === "company" && onOpenCompany ? (
-                    <button className="font-medium text-primary hover:underline" onClick={() => onOpenCompany(r.holderId)}>
+                    <button className="rounded-md font-medium text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" onClick={() => onOpenCompany(r.holderId)}>
                       {entityName(state, r.holderId)}
                     </button>
                   ) : (
@@ -105,6 +106,7 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
                       type="number"
                       min={0}
                       max={100}
+                      aria-label={`${field} percentage for ${entityName(state, r.holderId)}`}
                       value={r[field] ?? 0}
                       onChange={(e) => updateShareholding(r.id, { [field]: Number(e.target.value) })}
                       className="h-9 w-24"
@@ -114,7 +116,7 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
                 <td className="px-3 py-3">
                   <button
                     aria-label="Remove shareholder"
-                    className="text-muted-foreground transition-colors hover:text-destructive"
+                    className="rounded-md p-1 text-muted-foreground transition-colors hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     onClick={() => removeShareholding(r.id)}
                   >
                     <Trash2 className="size-4" />

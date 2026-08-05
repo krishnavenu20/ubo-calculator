@@ -19,15 +19,16 @@ export function UboResults({ output, threshold }: { output: CalculationOutput; t
     <div className="glass liquid-sheen overflow-hidden rounded-3xl">
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
+          <caption className="sr-only">Effective ownership per person with UBO status</caption>
           <thead>
             <tr className="border-b border-border text-left text-muted-foreground">
-              <th className="px-5 py-3 font-medium">Person / Entity</th>
-              <th className="px-3 py-3 font-medium">Ownership Path</th>
-              <th className="px-3 py-3 font-medium">Calculation</th>
-              <th className="px-3 py-3 font-medium">Direct</th>
-              <th className="px-3 py-3 font-medium">Indirect</th>
-              <th className="px-3 py-3 font-medium">Effective Ownership</th>
-              <th className="px-3 py-3 font-medium">UBO Status</th>
+              <th scope="col" className="px-5 py-3 font-medium">Person / Entity</th>
+              <th scope="col" className="px-3 py-3 font-medium">Ownership Path</th>
+              <th scope="col" className="px-3 py-3 font-medium">Calculation</th>
+              <th scope="col" className="px-3 py-3 font-medium">Direct</th>
+              <th scope="col" className="px-3 py-3 font-medium">Indirect</th>
+              <th scope="col" className="px-3 py-3 font-medium">Effective Ownership</th>
+              <th scope="col" className="px-3 py-3 font-medium">UBO Status</th>
             </tr>
           </thead>
           <tbody>

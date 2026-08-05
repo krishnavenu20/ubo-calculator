@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { UboProvider } from "../lib/ubo-store";
+import { ThemeProvider, themeInitScript } from "../lib/theme";
 import { Toaster } from "../components/ui/sonner";
 
 
@@ -111,9 +112,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body>
         {children}
@@ -128,11 +130,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <UboProvider>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </UboProvider>
-      <Toaster richColors position="top-right" />
+      <ThemeProvider>
+        <UboProvider>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </UboProvider>
+        <Toaster richColors position="top-right" />
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

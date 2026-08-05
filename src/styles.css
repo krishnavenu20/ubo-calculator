@@ -83,7 +83,7 @@
   --secondary: oklch(1 0 0 / 55%);
   --secondary-foreground: oklch(0.3 0.05 258);
   --muted: oklch(0.96 0.008 250 / 70%);
-  --muted-foreground: oklch(0.53 0.025 257);
+  --muted-foreground: oklch(0.44 0.03 257);
   --accent: oklch(1 0 0 / 45%);
   --accent-foreground: oklch(0.35 0.11 259);
   --destructive: oklch(0.62 0.22 25);
@@ -91,12 +91,12 @@
   --border: oklch(1 0 0 / 55%);
   --input: oklch(1 0 0 / 60%);
   --ring: oklch(0.62 0.19 258);
-  --success: oklch(0.62 0.15 155);
+  --success: oklch(0.48 0.13 155);
   --success-foreground: oklch(0.99 0.005 150);
   --success-soft: oklch(0.92 0.06 155 / 70%);
-  --glass: oklch(1 0 0 / 55%);
-  --glass-strong: oklch(1 0 0 / 78%);
-  --glass-border: oklch(1 0 0 / 65%);
+  --glass: oklch(1 0 0 / 68%);
+  --glass-strong: oklch(1 0 0 / 86%);
+  --glass-border: oklch(0.7 0.03 258 / 30%);
   --chart-1: oklch(0.62 0.19 258);
   --chart-2: oklch(0.62 0.15 155);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -126,7 +126,7 @@
   --secondary: oklch(1 0 0 / 12%);
   --secondary-foreground: oklch(0.97 0.005 248);
   --muted: oklch(1 0 0 / 10%);
-  --muted-foreground: oklch(0.76 0.02 257);
+  --muted-foreground: oklch(0.82 0.02 257);
   --accent: oklch(1 0 0 / 14%);
   --accent-foreground: oklch(0.97 0.005 248);
   --destructive: oklch(0.68 0.19 22);
@@ -137,9 +137,9 @@
   --success: oklch(0.75 0.16 155);
   --success-foreground: oklch(0.16 0.03 160);
   --success-soft: oklch(0.62 0.15 155 / 25%);
-  --glass: oklch(1 0 0 / 10%);
-  --glass-strong: oklch(1 0 0 / 16%);
-  --glass-border: oklch(1 0 0 / 18%);
+  --glass: oklch(1 0 0 / 14%);
+  --glass-strong: oklch(1 0 0 / 22%);
+  --glass-border: oklch(1 0 0 / 24%);
   --chart-1: oklch(0.68 0.17 258);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -230,5 +230,40 @@
       oklch(1 0 0 / 6%) 34%,
       transparent 60%
     );
+  }
+}
+
+/* Dark mode: softer inner rim + gentler liquid sheen so glass stays readable */
+.dark .glass,
+.dark [class~="glass"] {
+  box-shadow:
+    0 1px 0 0 oklch(1 0 0 / 12%) inset,
+    0 18px 40px -20px oklch(0 0 0 / 55%);
+}
+
+.dark .glass-strong {
+  box-shadow:
+    0 1px 0 0 oklch(1 0 0 / 16%) inset,
+    0 24px 50px -24px oklch(0 0 0 / 60%);
+}
+
+.dark .liquid-sheen::after {
+  background: linear-gradient(
+    140deg,
+    oklch(1 0 0 / 12%) 0%,
+    oklch(1 0 0 / 3%) 34%,
+    transparent 60%
+  );
+}
+
+/* Keyboard focus is always visible, even on unstyled controls */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--primary) 30%, transparent);
   }
 }
