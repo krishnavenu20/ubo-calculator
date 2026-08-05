@@ -19,6 +19,7 @@ export function UboResults({ output, threshold }: { output: CalculationOutput; t
     <div className="glass liquid-sheen overflow-hidden rounded-3xl">
       <div className="overflow-x-auto">
         <table className="w-full text-sm">
+          <caption className="sr-only">Effective ownership per person with UBO status</caption>
           <thead>
             <tr className="border-b border-border text-left text-muted-foreground">
               <th scope="col" className="px-5 py-3 font-medium">Person / Entity</th>
