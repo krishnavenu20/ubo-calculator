@@ -71,12 +71,12 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-border text-left text-muted-foreground">
-              <th className="px-5 py-3 font-medium">Shareholder / Entity</th>
-              <th className="px-3 py-3 font-medium">Type</th>
-              <th className="px-3 py-3 font-medium">Ownership %</th>
-              <th className="px-3 py-3 font-medium">Voting %</th>
-              <th className="px-3 py-3 font-medium">Control %</th>
-              <th className="px-3 py-3 font-medium">Action</th>
+              <th scope="col" className="px-5 py-3 font-medium">Shareholder / Entity</th>
+              <th scope="col" className="px-3 py-3 font-medium">Type</th>
+              <th scope="col" className="px-3 py-3 font-medium">Ownership %</th>
+              <th scope="col" className="px-3 py-3 font-medium">Voting %</th>
+              <th scope="col" className="px-3 py-3 font-medium">Control %</th>
+              <th scope="col" className="px-3 py-3 font-medium">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -114,7 +114,7 @@ export function OwnershipTable({ companyId, onOpenCompany }: { companyId: string
                 <td className="px-3 py-3">
                   <button
                     aria-label="Remove shareholder"
-                    className="text-muted-foreground transition-colors hover:text-destructive"
+                    className="rounded-md p-1 text-muted-foreground transition-colors hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     onClick={() => removeShareholding(r.id)}
                   >
                     <Trash2 className="size-4" />

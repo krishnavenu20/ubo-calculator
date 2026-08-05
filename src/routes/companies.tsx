@@ -64,12 +64,12 @@ function CompaniesPage() {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border text-left text-muted-foreground">
-                <th className="px-5 py-3 font-medium">Company</th>
-                <th className="px-3 py-3 font-medium">Reg. No</th>
-                <th className="px-3 py-3 font-medium">Country</th>
-                <th className="px-3 py-3 font-medium">Ownership total</th>
-                <th className="px-3 py-3 font-medium">Root</th>
-                <th className="px-3 py-3 font-medium">Action</th>
+                <th scope="col" className="px-5 py-3 font-medium">Company</th>
+                <th scope="col" className="px-3 py-3 font-medium">Reg. No</th>
+                <th scope="col" className="px-3 py-3 font-medium">Country</th>
+                <th scope="col" className="px-3 py-3 font-medium">Ownership total</th>
+                <th scope="col" className="px-3 py-3 font-medium">Root</th>
+                <th scope="col" className="px-3 py-3 font-medium">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -101,7 +101,7 @@ function CompaniesPage() {
                       <button
                         aria-label="Delete company"
                         onClick={() => removeCompany(c.id)}
-                        className="text-muted-foreground hover:text-destructive"
+                        className="rounded-md p-1 text-muted-foreground transition-colors hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                       >
                         <Trash2 className="size-4" />
                       </button>
