@@ -34,12 +34,12 @@ function Dashboard() {
       <div className="space-y-6">
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.label} className="glass rounded-3xl p-5">
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">{s.label}</p>
+            <div key={s.label} className="glass glow-edge glass-hover liquid-sheen rounded-3xl p-5">
+              <div className="relative z-10 flex items-center justify-between">
+                <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">{s.label}</p>
                 <s.icon className="size-5 text-primary" />
               </div>
-              <p className="mt-3 text-3xl font-bold text-foreground">{s.value}</p>
+              <p className="relative z-10 mt-3 text-3xl font-bold tracking-tight text-foreground">{s.value}</p>
             </div>
           ))}
         </div>
