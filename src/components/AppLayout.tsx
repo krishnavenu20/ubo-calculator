@@ -80,14 +80,14 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
 
       <aside
         aria-label="Main navigation"
-        className="glass liquid-sheen sticky top-5 hidden h-[calc(100dvh-2.5rem)] w-[262px] shrink-0 flex-col rounded-[28px] text-sidebar-foreground lg:flex"
+        className="glass glow-edge liquid-sheen sticky top-5 hidden h-[calc(100dvh-2.5rem)] w-[262px] shrink-0 flex-col rounded-[28px] text-sidebar-foreground lg:flex"
       >
         <div className="relative z-10 flex items-center gap-3 px-5 py-6">
           <span className="glass-strong flex size-11 items-center justify-center rounded-2xl text-primary">
             <ShieldCheck className="size-6" aria-hidden="true" />
           </span>
           <div>
-            <p className="text-[17px] font-semibold leading-tight tracking-tight">UBO Calculator</p>
+            <p className="text-[17px] font-semibold leading-tight tracking-[0.02em]">UBO Calculator</p>
             <p className="text-xs text-muted-foreground">Ultimate Beneficial Ownership</p>
           </div>
         </div>
@@ -117,7 +117,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col gap-5">
-        <header className="glass sticky top-0 z-30 flex flex-wrap items-center justify-between gap-3 rounded-none px-6 py-4 lg:top-5 lg:rounded-[24px]">
+        <header className="glass glow-edge sticky top-0 z-30 flex flex-wrap items-center justify-between gap-3 rounded-none px-6 py-4 lg:top-5 lg:rounded-[24px]">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link to="/" className={"rounded-md transition-colors hover:text-foreground " + focusRing}>
               Dashboard
