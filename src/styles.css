@@ -183,11 +183,11 @@
 
   .dark body {
     background-image:
-      radial-gradient(58rem 40rem at 6% -12%, oklch(0.62 0.18 205 / 34%), transparent 62%),
-      radial-gradient(52rem 36rem at 98% -4%, oklch(0.5 0.24 302 / 36%), transparent 62%),
-      radial-gradient(46rem 34rem at 72% 104%, oklch(0.55 0.16 190 / 26%), transparent 64%),
-      radial-gradient(38rem 30rem at 24% 96%, oklch(0.42 0.2 285 / 28%), transparent 62%),
-      linear-gradient(180deg, oklch(0.15 0.02 265) 0%, oklch(0.11 0.015 265) 100%);
+      radial-gradient(58rem 40rem at 6% -12%, oklch(0.68 0.19 205 / 55%), transparent 64%),
+      radial-gradient(52rem 36rem at 98% -4%, oklch(0.56 0.26 302 / 55%), transparent 64%),
+      radial-gradient(46rem 34rem at 72% 104%, oklch(0.6 0.17 190 / 42%), transparent 66%),
+      radial-gradient(38rem 30rem at 24% 96%, oklch(0.5 0.22 285 / 45%), transparent 64%),
+      linear-gradient(180deg, oklch(0.16 0.025 265) 0%, oklch(0.12 0.02 268) 100%);
   }
 
   h1, h2, h3 {
