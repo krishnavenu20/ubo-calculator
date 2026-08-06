@@ -117,7 +117,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col gap-5">
-        <header className="glass sticky top-0 z-30 flex flex-wrap items-center justify-between gap-3 rounded-none px-6 py-4 lg:top-5 lg:rounded-[24px]">
+        <header className="glass glow-edge sticky top-0 z-30 flex flex-wrap items-center justify-between gap-3 rounded-none px-6 py-4 lg:top-5 lg:rounded-[24px]">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link to="/" className={"rounded-md transition-colors hover:text-foreground " + focusRing}>
               Dashboard
