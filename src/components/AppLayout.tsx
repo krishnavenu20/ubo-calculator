@@ -87,7 +87,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
             <ShieldCheck className="size-6" aria-hidden="true" />
           </span>
           <div>
-            <p className="text-[17px] font-semibold leading-tight tracking-tight">UBO Calculator</p>
+            <p className="text-[17px] font-semibold leading-tight tracking-[0.02em]">UBO Calculator</p>
             <p className="text-xs text-muted-foreground">Ultimate Beneficial Ownership</p>
           </div>
         </div>
