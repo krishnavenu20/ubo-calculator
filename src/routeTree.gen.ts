@@ -16,6 +16,7 @@ import { Route as IndividualsRouteImport } from './routes/individuals'
 import { Route as OwnershipRouteImport } from './routes/ownership'
 import { Route as ReportsRouteImport } from './routes/reports'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TreeRouteImport } from './routes/tree'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TreeRoute = TreeRouteImport.update({
   id: '/tree',
   path: '/tree',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/ownership': typeof OwnershipRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tree': typeof TreeRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/ownership': typeof OwnershipRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tree': typeof TreeRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/ownership': typeof OwnershipRoute
   '/reports': typeof ReportsRoute
   '/settings': typeof SettingsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tree': typeof TreeRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/ownership'
     | '/reports'
     | '/settings'
+    | '/sitemap.xml'
     | '/tree'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/ownership'
     | '/reports'
     | '/settings'
+    | '/sitemap.xml'
     | '/tree'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/ownership'
     | '/reports'
     | '/settings'
+    | '/sitemap.xml'
     | '/tree'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   OwnershipRoute: typeof OwnershipRoute
   ReportsRoute: typeof ReportsRoute
   SettingsRoute: typeof SettingsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TreeRoute: typeof TreeRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tree': {
       id: '/tree'
       path: '/tree'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   OwnershipRoute: OwnershipRoute,
   ReportsRoute: ReportsRoute,
   SettingsRoute: SettingsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TreeRoute: TreeRoute,
 }
 export const routeTree = rootRouteImport
