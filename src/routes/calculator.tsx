@@ -30,7 +30,7 @@ function CalculatorPage() {
   const invalid = state.companies.filter((c) => ownershipTotal(state, c.id) !== 100);
 
   return (
-    <AppLayout title="Calculation">
+    <AppLayout title="UBO Calculation Results">
       <div className="space-y-8">
         <section className="space-y-3">
           <h2 className="text-lg font-semibold text-foreground">1. Ownership Structure</h2>

@@ -26,7 +26,7 @@ function ReportsPage() {
   const rootName = state.rootCompanyId ? entityName(state, state.rootCompanyId) : "—";
 
   return (
-    <AppLayout title="Reports">
+    <AppLayout title="UBO Reports">
       <div className="space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-3 glass rounded-3xl p-5">
           <div>

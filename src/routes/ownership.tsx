@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { AppLayout } from "@/components/AppLayout";
 import { OwnershipTable } from "@/components/ubo/OwnershipTable";
 import { useUbo } from "@/lib/ubo-store";
+import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export const Route = createFileRoute("/ownership")({
@@ -31,9 +32,11 @@ function OwnershipPage() {
     <AppLayout title="Ownership Builder">
       <div className="space-y-5">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="text-sm text-muted-foreground">Company</span>
+          <Label htmlFor="ownership-company" className="text-sm text-muted-foreground">
+            Company
+          </Label>
           <Select value={selected ?? ""} onValueChange={setSelected}>
-            <SelectTrigger className="w-[260px] bg-card">
+            <SelectTrigger id="ownership-company" className="w-[260px] bg-card">
               <SelectValue placeholder="Select a company" />
             </SelectTrigger>
             <SelectContent>

@@ -30,7 +30,7 @@ function Dashboard() {
   ];
 
   return (
-    <AppLayout title="Dashboard">
+    <AppLayout title="Ultimate Beneficial Ownership Calculator">
       <div className="space-y-6">
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {stats.map((s) => (

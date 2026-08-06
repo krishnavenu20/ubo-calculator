@@ -4,6 +4,7 @@ import { AppLayout } from "@/components/AppLayout";
 import { OwnershipTree } from "@/components/ubo/OwnershipTree";
 import { useUbo } from "@/lib/ubo-store";
 import { buildTree } from "@/lib/ubo-engine";
+import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export const Route = createFileRoute("/tree")({
@@ -27,9 +28,11 @@ function TreePage() {
     <AppLayout title="Ownership Tree">
       <div className="space-y-5">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="text-sm text-muted-foreground">Root company</span>
+          <Label htmlFor="tree-root-company" className="text-sm text-muted-foreground">
+            Root company
+          </Label>
           <Select value={state.rootCompanyId ?? ""} onValueChange={setRootCompany}>
-            <SelectTrigger className="w-[260px] bg-card">
+            <SelectTrigger id="tree-root-company" className="w-[260px] bg-card">
               <SelectValue placeholder="Select a company" />
             </SelectTrigger>
             <SelectContent>
