@@ -65,7 +65,10 @@
   --color-glass: var(--glass);
   --color-glass-strong: var(--glass-strong);
   --color-glass-border: var(--glass-border);
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --color-neon: var(--neon);
+  --color-violet: var(--violet);
+  --color-chrome: var(--chrome);
+  --font-sans: "SF Pro Display", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Helvetica Neue", system-ui, sans-serif;
 }
 
 
