@@ -80,7 +80,7 @@ export function AppLayout({ title, children }: { title: string; children: ReactN
 
       <aside
         aria-label="Main navigation"
-        className="glass liquid-sheen sticky top-5 hidden h-[calc(100dvh-2.5rem)] w-[262px] shrink-0 flex-col rounded-[28px] text-sidebar-foreground lg:flex"
+        className="glass glow-edge liquid-sheen sticky top-5 hidden h-[calc(100dvh-2.5rem)] w-[262px] shrink-0 flex-col rounded-[28px] text-sidebar-foreground lg:flex"
       >
         <div className="relative z-10 flex items-center gap-3 px-5 py-6">
           <span className="glass-strong flex size-11 items-center justify-center rounded-2xl text-primary">
